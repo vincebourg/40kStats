@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _40Stats.Core.Targets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
