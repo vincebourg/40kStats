@@ -1,4 +1,5 @@
-﻿using _40Stats.Core.Targets;
+﻿using _40Stats.Core.Statistics;
+using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;

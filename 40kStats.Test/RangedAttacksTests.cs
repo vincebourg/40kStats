@@ -1,4 +1,5 @@
-﻿using _40Stats.Core.Rolls;
+﻿using _40Stats.Core.Attacks;
+using _40Stats.Core.Rolls;
 using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
