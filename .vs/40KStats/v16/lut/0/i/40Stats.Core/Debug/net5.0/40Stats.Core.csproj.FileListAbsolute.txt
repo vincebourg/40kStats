@@ -1,0 +1,9 @@
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\b\40Stats.Core\Debug\net5.0\40Stats.Core.deps.json
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\b\40Stats.Core\Debug\net5.0\40Stats.Core.dll
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\b\40Stats.Core\Debug\net5.0\ref\40Stats.Core.dll
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\40Stats.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\40Stats.Core.AssemblyInfoInputs.cache
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\40Stats.Core.AssemblyInfo.cs
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\40Stats.Core.csproj.CopyComplete
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\40Stats.Core.dll
+D:\Dev\40KStats\.vs\40KStats\v16\lut\0\i\40Stats.Core\Debug\net5.0\ref\40Stats.Core.dll
