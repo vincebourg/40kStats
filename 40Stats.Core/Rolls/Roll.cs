@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _40Stats.Core.Rolls
 {
-    internal record Roll
+    public record Roll
     {
-        internal Roll(int expectedValue, int rollResult)
+        public Roll(int expectedValue, int rollResult)
         {
             Expected = expectedValue;
             RollResult = rollResult;

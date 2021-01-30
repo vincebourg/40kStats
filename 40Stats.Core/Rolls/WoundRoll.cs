@@ -1,6 +1,6 @@
 ﻿namespace _40Stats.Core.Rolls
 {
-    internal record WoundRoll : Roll
+    public record WoundRoll : Roll
     {
 
         public WoundRoll(int expected, int roll) : base(expected, roll)

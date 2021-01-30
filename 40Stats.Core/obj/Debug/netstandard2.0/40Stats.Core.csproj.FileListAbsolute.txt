@@ -1,9 +1,0 @@
-D:\Dev\40KStats\40Stats.Core\bin\Debug\netstandard2.0\40Stats.Core.deps.json
-D:\Dev\40KStats\40Stats.Core\bin\Debug\netstandard2.0\40Stats.Core.dll
-D:\Dev\40KStats\40Stats.Core\bin\Debug\netstandard2.0\40Stats.Core.pdb
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.csprojAssemblyReference.cache
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.AssemblyInfoInputs.cache
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.AssemblyInfo.cs
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.csproj.CoreCompileInputs.cache
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.dll
-D:\Dev\40KStats\40Stats.Core\obj\Debug\netstandard2.0\40Stats.Core.pdb

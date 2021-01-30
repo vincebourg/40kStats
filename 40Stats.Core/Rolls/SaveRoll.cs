@@ -1,6 +1,6 @@
 ﻿namespace _40Stats.Core.Rolls
 {
-    internal record SaveRoll : Roll
+    public record SaveRoll : Roll
     {
         public SaveRoll(int Expected, int RollResult) : base(Expected, RollResult)
         {
