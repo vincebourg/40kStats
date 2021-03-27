@@ -8,3 +8,6 @@
 /.vs/40KStats/v16
 /40kStats.Test/bin/Debug/net5.0
 /40Stats.Core/bin/Debug/net5.0
+/40StatsConsole/obj
+/40StatsConsole/bin/Debug
+/40StatsConsole/Properties

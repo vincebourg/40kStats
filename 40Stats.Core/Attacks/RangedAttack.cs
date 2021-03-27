@@ -16,6 +16,6 @@ namespace _40Stats.Core.Attacks
             roller.Roll()
         );
 
-        public SaveRoll RollSave(IRoll roller) => new SaveRoll(Target.Save?.Expected ?? 7, roller.Roll());
+        public SaveRoll RollSave(IRoll roller) => new SaveRoll(Target.Save?.Expected ?? int.MaxValue, roller.Roll());
     }
 }
