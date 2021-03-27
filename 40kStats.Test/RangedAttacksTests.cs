@@ -56,5 +56,21 @@ namespace _40kStats.Test
 
             Assert.AreEqual(expectedWoundRoll, woundRoll.Expected);
         }
+
+        [TestMethod]
+        public void ranged_attack_can_be_rolled_for_save()
+        {
+            int expectedSaveRoll = 5;
+            Save save = new(expectedSaveRoll);
+            Target target = new(1,save);
+            Shooter shooter = new(1);
+            int weaponStrenght = 1;
+
+            RangedAttack rangedAttack = new(target, shooter, weaponStrenght);
+
+            SaveRoll saveRoll = rangedAttack.RollSave();
+
+            Assert.AreEqual(expectedSaveRoll, saveRoll.Expected);
+        }
     }
 }
