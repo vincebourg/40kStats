@@ -11,11 +11,13 @@ namespace _40Stats.Core.Statistics
         {
             var attacks = Shooter.Shoot(Target, Weapon);
             var hits = attacks.Select(a => (attack: a, hitRoll: a.RollHit(roller))).ToArray();
-            var wounds = hits.Where(h => h.hitRoll.Hit).Select(h => h.attack.RollWound(roller)).ToArray();
+            var wounds = hits.Where(h => h.hitRoll.Hit).Select(a => (attack: a.attack, woundRoll: a.attack.RollWound(roller))).ToArray();
+            var saves = wounds.Where(w => w.woundRoll.Wounded).Select(a => (attack: a.attack,saveRoll: a.attack.RollSave(roller))).ToArray();
             return new(
                 attacks.Count(),
                 wounds.Count(),
-                wounds.Count(w => w.Wounded)
+                saves.Count(),
+                saves.Count(s => s.saveRoll.Missed)
             );
         }
     }

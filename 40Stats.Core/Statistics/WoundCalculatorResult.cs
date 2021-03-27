@@ -1,4 +1,4 @@
 ﻿namespace _40Stats.Core.Statistics
 {
-    public record WoundCalculatorResult(int NumberOfShots, int NumberOfHits, int NumberOfWounds);
+    public record WoundCalculatorResult(int NumberOfShots, int NumberOfHits, int NumberOfWounds, int numberOfNonSavedWounds);
 }
