@@ -7,15 +7,15 @@ namespace _40Stats.Core.Attacks
 {
     public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrenght)
     {
-        public HitRoll RollHit() => new HitRoll(Shooter.BalisticSkill, new Dice().Roll());
+        public HitRoll RollHit(IRoll roller) => new HitRoll(Shooter.BalisticSkill, roller.Roll());
 
-        public WoundRoll RollWound() => new WoundRoll(
+        public WoundRoll RollWound(IRoll roller) => new WoundRoll(
             new WoundThresholdCalculator().GetThreshold(
                 WeaponStrenght,
                 Target.Endurance),
-            new Dice().Roll()
+            roller.Roll()
         );
 
-        public SaveRoll RollSave() => new SaveRoll(Target.Save?.Expected ?? 7, new Dice().Roll());
+        public SaveRoll RollSave(IRoll roller) => new SaveRoll(Target.Save?.Expected ?? 7, roller.Roll());
     }
 }

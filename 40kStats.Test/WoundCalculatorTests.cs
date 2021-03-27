@@ -1,4 +1,5 @@
-﻿using _40Stats.Core.Statistics;
+﻿using _40Stats.Core.Dices;
+using _40Stats.Core.Statistics;
 using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -21,7 +22,7 @@ namespace _40kStats.Test
 
             WoundCalculator calculator = new(target, shooter, weapon);
 
-            WoundCalculatorResult result = calculator.Process();
+            WoundCalculatorResult result = calculator.Process(new Dice());
 
             Assert.AreEqual(weapon.Attacks, result.NumberOfShots);
             Assert.IsTrue(result.NumberOfShots >= result.NumberOfHits);

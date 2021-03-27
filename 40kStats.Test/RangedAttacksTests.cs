@@ -1,8 +1,8 @@
 ﻿using _40Stats.Core.Attacks;
+using _40Stats.Core.Dices;
 using _40Stats.Core.Rolls;
 using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace _40kStats.Test
 {
     [TestClass]
-    public class RangedAttacksTests
+    public partial class RangedAttacksTests
     {
         [TestMethod]
         public void ranged_attack_must_have_shooter_strenght_and_target()
@@ -36,7 +36,7 @@ namespace _40kStats.Test
 
             RangedAttack rangedAttack = new(target, shooter, weaponStrenght);
 
-            HitRoll hitRoll = rangedAttack.RollHit();
+            HitRoll hitRoll = rangedAttack.RollHit(new Dice());
 
             Assert.AreEqual(shooter.BalisticSkill, hitRoll.Expected);
         }
@@ -52,7 +52,7 @@ namespace _40kStats.Test
 
             RangedAttack rangedAttack = new(target, shooter, weaponStrenght);
 
-            WoundRoll woundRoll = rangedAttack.RollWound();
+            WoundRoll woundRoll = rangedAttack.RollWound(new Dice());
 
             Assert.AreEqual(expectedWoundRoll, woundRoll.Expected);
         }
@@ -68,7 +68,7 @@ namespace _40kStats.Test
 
             RangedAttack rangedAttack = new(target, shooter, weaponStrenght);
 
-            SaveRoll saveRoll = rangedAttack.RollSave();
+            SaveRoll saveRoll = rangedAttack.RollSave(new Dice());
 
             Assert.AreEqual(expectedSaveRoll, saveRoll.Expected);
         }
