@@ -5,28 +5,30 @@ using System;
 using System.Linq;
 
 
-if (args.Length != 5 || args.Any(a => !int.TryParse(a, out int result) || result > 10 || result < 1))
+if (args.Length != 5 || args.Any(a => !int.TryParse(a, out int result) || result < 1))
 {
-    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght TargetToughtness TargetSave");
-    Console.WriteLine("Values must be between 1 and 10");
+    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght WeaponArmorPenetration TargetToughtness TargetSave");
+    Console.WriteLine("Values must be integer and more than 1");
 }
 
-var NumberOfShots       = int.Parse(args[0]);
-var balisticSkill       = int.Parse(args[1]);
-var WeaponStrenght      = int.Parse(args[2]);
-var TargetToughtness    = int.Parse(args[3]);
-var TargetSave          = int.Parse(args[4]);
+var NumberOfShots           = int.Parse(args[0]);
+var balisticSkill           = int.Parse(args[1]);
+var WeaponStrenght          = int.Parse(args[2]);
+var WeaponArmorPenetration  = int.Parse(args[3]);
+var TargetToughtness        = int.Parse(args[4]);
+var TargetSave              = int.Parse(args[5]);
 
 Console.WriteLine($"# of shots: {NumberOfShots}");
 Console.WriteLine($"Balistic skill: {balisticSkill}");
 Console.WriteLine($"Weapon strenght: {WeaponStrenght}");
+Console.WriteLine($"Weapon strenght: {WeaponArmorPenetration}");
 Console.WriteLine($"Target toughtness: {TargetToughtness}");
 Console.WriteLine($"Target save: {TargetSave}");
 
 Dice dice = new();
 
 Shooter shooter = new(balisticSkill);
-Weapon weapon = new(NumberOfShots, WeaponStrenght);
+Weapon weapon = new(NumberOfShots, WeaponStrenght, WeaponArmorPenetration);
 Save save = new Save(TargetSave);
 Target target = new(TargetToughtness, save);
 
