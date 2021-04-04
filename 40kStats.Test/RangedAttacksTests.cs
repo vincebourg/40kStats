@@ -72,5 +72,24 @@ namespace _40kStats.Test
 
             Assert.AreEqual(expectedSaveRoll, saveRoll.Expected);
         }
+
+        [TestMethod]
+        public void ranged_attack_with_AP_makes_save_harder()
+        {
+            // given
+            int expectedSaveRoll = 3;
+            Save save = new(expectedSaveRoll);
+            Target target = new(1, save);
+            Shooter shooter = new(1);
+            Weapon weapon = new(1, 1, 2);
+
+            // when
+            var result = shooter.Shoot(target, weapon);
+
+            // then
+            Assert.AreEqual(result.Count(), 1, "Weapon shot should have generated one shot.");
+            Assert.AreEqual(result.First().RollSave(new Dice()).Expected, 5, "Save should have been lowered by 2.");
+            
+        }
     }
 }
