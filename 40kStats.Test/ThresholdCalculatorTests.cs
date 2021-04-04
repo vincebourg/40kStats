@@ -12,11 +12,11 @@ namespace _40kStats.Test
     public class ThresholdCalculatorTests
     {
         [TestMethod]
-        public void when_strenght_equals_endurance_four_needed()
+        public void when_strenght_twice_or_more_than_endurance_2_needed()
         {
-            WoundThresholdCalculator calculator = new ();
-            var result = calculator.GetThreshold(4, 4);
-            Assert.AreEqual(4, result);
+            WoundThresholdCalculator calculator = new();
+            var result = calculator.GetThreshold(8, 4);
+            Assert.AreEqual(2, result);
         }
 
         [TestMethod]
@@ -25,6 +25,14 @@ namespace _40kStats.Test
             WoundThresholdCalculator calculator = new();
             var result = calculator.GetThreshold(4, 3);
             Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void when_strenght_equals_endurance_four_needed()
+        {
+            WoundThresholdCalculator calculator = new();
+            var result = calculator.GetThreshold(4, 4);
+            Assert.AreEqual(4, result);
         }
 
         [TestMethod]
@@ -43,13 +51,7 @@ namespace _40kStats.Test
             Assert.AreEqual(6, result);
         }
 
-        [TestMethod]
-        public void when_strenght_twice_or_more_than_endurance_2_needed()
-        {
-            WoundThresholdCalculator calculator = new();
-            var result = calculator.GetThreshold(8, 4);
-            Assert.AreEqual(2, result);
-        }
+        
     }
 
 }
