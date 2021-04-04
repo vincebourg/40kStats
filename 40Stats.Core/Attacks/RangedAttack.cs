@@ -5,7 +5,7 @@ using System;
 
 namespace _40Stats.Core.Attacks
 {
-    public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrenght)
+    public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrenght, int ArmorPenetration = 0)
     {
         public HitRoll RollHit(IRoll roller) => new HitRoll(Shooter.BalisticSkill, roller.Roll());
 
@@ -16,6 +16,9 @@ namespace _40Stats.Core.Attacks
             roller.Roll()
         );
 
-        public SaveRoll RollSave(IRoll roller) => new SaveRoll(Target.Save?.Expected ?? int.MaxValue, roller.Roll());
+        public SaveRoll RollSave(IRoll roller) =>
+            Target.Save != null
+                ? Target.Save.Roll(roller, ArmorPenetration)
+                : new SaveRoll(int.MaxValue, int.MinValue);
     }
 }
