@@ -5,9 +5,9 @@ namespace _40Stats.Core.Targets
 {
     public record Save(int Expected)
     {
-        public SaveRoll Roll()
+        public SaveRoll Roll(IRoll dice, int ArmorPenetration = 0)
         {
-            return new(Expected, new Dice().Roll());
+            return new(Expected + ArmorPenetration, dice.Roll());
         }
     };
 

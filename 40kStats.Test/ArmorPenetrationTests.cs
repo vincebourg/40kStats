@@ -1,10 +1,8 @@
-﻿using _40Stats.Core.Targets;
+﻿using _40Stats.Core.Dices;
+using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static _40kStats.Test.RangedAttacksTests;
 
 namespace _40kStats.Test
 {
@@ -23,7 +21,26 @@ namespace _40kStats.Test
         public void save_is_modified_by_ap()
         {
             Save save = new Save(5);
-            save.Roll();
+            var result = save.Roll(new OnlyRollOne(), 1);
+            Assert.AreEqual(6, result.Expected);
+        }
+
+        [TestMethod]
+        public void no_possible_success_if_AP_too_strong()
+        {
+            Save save = new Save(1);
+            var allPossibleDices = new IRoll[]
+            {
+                new OnlyRollOne(),
+                new OnlyRollTwo(),
+                new OnlyRollThree(),
+                new OnlyRollFour(),
+                new OnlyRollFive(),
+                new OnlyRollSix()
+            };
+
+            var rolls = allPossibleDices.Select(d => save.Roll(d, 6));
+            Assert.IsTrue(rolls.All(r => r.Missed));
         }
     }
 }
