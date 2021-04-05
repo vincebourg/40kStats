@@ -30,7 +30,7 @@ namespace _40kStats.Test
         }
 
         [TestMethod]
-        public void invulnerable_save_are_not_afected_by_Armor_penetration()
+        public void invulnerable_save_are_not_afected_by_armor_penetration()
         {
             var expectedSaveRoll = 4;
             Save save = new(expectedSaveRoll, true);
