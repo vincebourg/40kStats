@@ -7,8 +7,8 @@ using System.Linq;
 
 if (args.Length != 5 || args.Any(a => !int.TryParse(a, out int result) || result < 1))
 {
-    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght WeaponArmorPenetration TargetToughtness TargetSave");
-    Console.WriteLine("Values must be integer and more than 1");
+    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght WeaponArmorPenetration TargetToughtness TargetSave IsInvulnerableSave");
+    Console.WriteLine("Values must be integer and more than 1, except IsInvulnerableSave which must be true or false");
 }
 
 var NumberOfShots           = int.Parse(args[0]);
@@ -17,6 +17,7 @@ var WeaponStrenght          = int.Parse(args[2]);
 var WeaponArmorPenetration  = int.Parse(args[3]);
 var TargetToughtness        = int.Parse(args[4]);
 var TargetSave              = int.Parse(args[5]);
+var InvulnerableSave        = bool.Parse(args[6]);
 
 Console.WriteLine($"# of shots: {NumberOfShots}");
 Console.WriteLine($"Balistic skill: {balisticSkill}");
@@ -24,6 +25,7 @@ Console.WriteLine($"Weapon strenght: {WeaponStrenght}");
 Console.WriteLine($"Weapon strenght: {WeaponArmorPenetration}");
 Console.WriteLine($"Target toughtness: {TargetToughtness}");
 Console.WriteLine($"Target save: {TargetSave}");
+Console.WriteLine($"Target save: {InvulnerableSave}");
 
 Dice dice = new();
 
