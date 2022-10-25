@@ -2,12 +2,14 @@
 # Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/40KStats/v16/TestStore/0
 /40kStats.Test/obj
 /40Stats.Core/obj
-/.vs/40KStats/v16
+/.vs/40KStats
 /40kStats.Test/bin/Debug/net5.0
 /40Stats.Core/bin/Debug/net5.0
 /40StatsConsole/obj
 /40StatsConsole/bin/Debug
 /40StatsConsole/Properties
+/40kStats.Test/bin/Debug/net6.0
+/40Stats.Core/bin/Debug/net6.0
+
