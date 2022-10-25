@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "40StatsConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "1 4 5 1 3 5 false"
+    }
+  }
+}
