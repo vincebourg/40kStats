@@ -5,10 +5,11 @@ using System;
 using System.Linq;
 
 
-if (args.Length != 5 || args.Any(a => !int.TryParse(a, out int result) || result < 1))
+if (args.Length != 7 || args.Take(6).Any(a => !int.TryParse(a, out int result) || result < 1) || !bool.TryParse(args[6], out var resultBool))
 {
     Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght WeaponArmorPenetration TargetToughtness TargetSave IsInvulnerableSave");
     Console.WriteLine("Values must be integer and more than 1, except IsInvulnerableSave which must be true or false");
+    return;
 }
 
 var NumberOfShots           = int.Parse(args[0]);
@@ -17,7 +18,7 @@ var WeaponStrenght          = int.Parse(args[2]);
 var WeaponArmorPenetration  = int.Parse(args[3]);
 var TargetToughtness        = int.Parse(args[4]);
 var TargetSave              = int.Parse(args[5]);
-var InvulnerableSave        = bool.Parse(args[6]);
+var InvulnerableSave        = resultBool;
 
 Console.WriteLine($"# of shots: {NumberOfShots}");
 Console.WriteLine($"Balistic skill: {balisticSkill}");
