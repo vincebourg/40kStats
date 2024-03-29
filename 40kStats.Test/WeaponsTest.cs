@@ -21,5 +21,21 @@ namespace _40kStats.Test
             Weapon weapon = new Weapon(0, weaponStrenght);
             Assert.AreEqual(weaponStrenght, weapon.Strenght);
         }
+
+        [TestMethod]
+        public void weapon_can_have_devastating_wounds()
+        {
+            int weaponStrenght = 2;
+            Weapon weapon = new Weapon(0, weaponStrenght, DevastatingWounds: true);
+            Assert.IsTrue(weapon.DevastatingWounds);
+        }
+
+        [TestMethod]
+        public void weapon_is_not_devastating_by_default()
+        {
+            int weaponStrenght = 2;
+            Weapon weapon = new Weapon(0, weaponStrenght);
+            Assert.IsFalse(weapon.DevastatingWounds);
+        }
     }
 }
