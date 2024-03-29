@@ -9,5 +9,6 @@
         }
 
         public bool Wounded { get; init; }
+        public bool IsCritical => RollResult == 6;
     }
 }

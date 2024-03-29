@@ -26,5 +26,19 @@ namespace _40kStats.Test
             Assert.IsTrue(roll.Wounded);
             Assert.IsFalse(roll.Missed);
         }
+
+        [TestMethod]
+        public void wound_roll_of_6_is_critical()
+        {
+            WoundRoll roll = new WoundRoll(6, 6);
+            Assert.IsTrue(roll.IsCritical);
+        }
+
+        [TestMethod]
+        public void wound_roll_of_5_is_not_critical()
+        {
+            WoundRoll roll = new WoundRoll(5, 5);
+            Assert.IsFalse(roll.IsCritical);
+        }
     }
 }
