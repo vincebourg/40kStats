@@ -96,5 +96,24 @@ namespace _40kStats.Test
             Assert.AreEqual(1, result.NumberOfWounds);
             Assert.AreEqual(1, result.numberOfNonSavedWounds);
         }
+
+
+
+        [TestMethod]
+        public void woundCalculator_can_handle_devastating_wounds()
+        {
+            Target target = new(3, new Save(6, true));
+            Shooter shooter = new(2);
+            Weapon weapon = new(1, 3, DevastatingWounds: true);
+
+            WoundCalculator calculator = new(target, shooter, weapon);
+
+            WoundCalculatorResult result = calculator.Process(new OnlyRollSix());
+
+            Assert.AreEqual(1, result.NumberOfShots);
+            Assert.AreEqual(1, result.NumberOfHits);
+            Assert.AreEqual(1, result.NumberOfWounds);
+            Assert.AreEqual(1, result.numberOfNonSavedWounds);
+        }
     }
 }
