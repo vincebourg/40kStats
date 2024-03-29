@@ -10,7 +10,7 @@ namespace _40kStats.Test
         public void target_endurance_has_to_be_set()
         {
             int enduranceValue = 1;
-            Target target = new Target(enduranceValue);
+            Target target = new(enduranceValue);
             Assert.AreEqual(enduranceValue, target.Endurance);
         }
 
@@ -19,7 +19,7 @@ namespace _40kStats.Test
         {
             int enduranceValue = 1;
             int saveValue = 5;
-            Target target = new Target(enduranceValue, new Save(saveValue));
+            Target target = new(enduranceValue, new Save(saveValue));
             Assert.AreEqual(saveValue, target.Save.Expected);
         }
 

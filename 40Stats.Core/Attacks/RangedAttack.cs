@@ -6,9 +6,9 @@ namespace _40Stats.Core.Attacks
 {
     public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrenght, int ArmorPenetration = 0)
     {
-        public HitRoll RollHit(IRoll roller) => new HitRoll(Shooter.BalisticSkill, roller.Roll());
+        public HitRoll RollHit(IRoll roller) => new(Shooter.BalisticSkill, roller.Roll());
 
-        public WoundRoll RollWound(IRoll roller) => new WoundRoll(
+        public WoundRoll RollWound(IRoll roller) => new(
             new WoundThresholdCalculator().GetThreshold(
                 WeaponStrenght,
                 Target.Endurance),

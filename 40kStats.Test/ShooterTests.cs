@@ -25,7 +25,7 @@ namespace _40kStats.Test
             int randomStrenght = new Random().Next(1, 10);
             Target target = new(1);
             Weapon weapon = new(randomNumberOfAttacks, randomStrenght);
-            Shooter shooter = new Shooter(1);
+            Shooter shooter = new(1);
 
             IEnumerable<RangedAttack> rangedAttacks = shooter.Shoot(target, weapon);
 

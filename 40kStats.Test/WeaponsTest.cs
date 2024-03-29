@@ -10,7 +10,7 @@ namespace _40kStats.Test
         public void weapon_attacks_has_to_be_set()
         {
             int numberOfAttacks = 2;
-            Weapon weapon = new Weapon(numberOfAttacks, 0);
+            Weapon weapon = new(numberOfAttacks, 0);
             Assert.AreEqual(numberOfAttacks, weapon.Attacks);
         }
 
@@ -18,7 +18,7 @@ namespace _40kStats.Test
         public void weapon_strenght_has_to_be_set()
         {
             int weaponStrenght = 2;
-            Weapon weapon = new Weapon(0, weaponStrenght);
+            Weapon weapon = new(0, weaponStrenght);
             Assert.AreEqual(weaponStrenght, weapon.Strenght);
         }
 
@@ -26,7 +26,7 @@ namespace _40kStats.Test
         public void weapon_can_have_devastating_wounds()
         {
             int weaponStrenght = 2;
-            Weapon weapon = new Weapon(0, weaponStrenght, DevastatingWounds: true);
+            Weapon weapon = new(0, weaponStrenght, DevastatingWounds: true);
             Assert.IsTrue(weapon.DevastatingWounds);
         }
 
@@ -34,7 +34,7 @@ namespace _40kStats.Test
         public void weapon_is_not_devastating_by_default()
         {
             int weaponStrenght = 2;
-            Weapon weapon = new Weapon(0, weaponStrenght);
+            Weapon weapon = new(0, weaponStrenght);
             Assert.IsFalse(weapon.DevastatingWounds);
         }
     }

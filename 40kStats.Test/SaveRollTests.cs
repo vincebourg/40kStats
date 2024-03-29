@@ -9,7 +9,7 @@ namespace _40kStats.Test
         [TestMethod]
         public void when_roll_5_and_save_6_miss()
         {
-            SaveRoll roll = new SaveRoll(6, 5);
+            SaveRoll roll = new(6, 5);
             Assert.IsTrue(roll.Missed);
             Assert.IsFalse(roll.Saved);
         }
@@ -17,7 +17,7 @@ namespace _40kStats.Test
         [TestMethod]
         public void when_roll_5_and_save_5_saved()
         {
-            SaveRoll roll = new SaveRoll(5, 5);
+            SaveRoll roll = new(5, 5);
             Assert.IsTrue(roll.Saved);
             Assert.IsFalse(roll.Missed);
         }
@@ -25,7 +25,7 @@ namespace _40kStats.Test
         [TestMethod]
         public void save_roll_of_1_always_miss()
         {
-            SaveRoll roll = new SaveRoll(1, 1);
+            SaveRoll roll = new(1, 1);
             Assert.IsTrue(roll.Missed);
             Assert.IsFalse(roll.Saved);
         }
