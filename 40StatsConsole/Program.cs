@@ -32,10 +32,10 @@ Dice dice = new();
 
 Shooter shooter = new(balisticSkill);
 Weapon weapon = new(NumberOfShots, WeaponStrenght, WeaponArmorPenetration);
-Save save = new Save(TargetSave);
+Save save = new(TargetSave);
 Target target = new(TargetToughtness, save);
 
-WoundCalculator woundCalculator = new WoundCalculator(target, shooter, weapon);
+WoundCalculator woundCalculator = new(target, shooter, weapon);
 
 var results = Enumerable.Range(0, 100)
     .Select(i => woundCalculator.Process(dice));
