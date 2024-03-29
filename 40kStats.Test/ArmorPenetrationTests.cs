@@ -2,7 +2,6 @@
 using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using static _40kStats.Test.RangedAttacksTests;
 
 namespace _40kStats.Test
 {

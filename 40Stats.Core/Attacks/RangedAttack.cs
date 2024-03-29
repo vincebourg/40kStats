@@ -1,7 +1,6 @@
 ﻿using _40Stats.Core.Dices;
 using _40Stats.Core.Rolls;
 using _40Stats.Core.Targets;
-using System;
 
 namespace _40Stats.Core.Attacks
 {

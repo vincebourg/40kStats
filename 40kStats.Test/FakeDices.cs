@@ -1,9 +1,8 @@
 ﻿using _40Stats.Core.Dices;
-using System;
 
 namespace _40kStats.Test
 {
-    
+
     internal class OnlyRollOne : IRoll
     {
         public int Roll()

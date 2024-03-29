@@ -2,12 +2,6 @@
 using _40Stats.Core.Statistics;
 using _40Stats.Core.Targets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static _40kStats.Test.RangedAttacksTests;
 
 namespace _40kStats.Test
 {
