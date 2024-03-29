@@ -23,10 +23,10 @@ var InvulnerableSave        = resultBool;
 Console.WriteLine($"# of shots: {NumberOfShots}");
 Console.WriteLine($"Balistic skill: {balisticSkill}");
 Console.WriteLine($"Weapon strenght: {WeaponStrenght}");
-Console.WriteLine($"Weapon strenght: {WeaponArmorPenetration}");
+Console.WriteLine($"Weapon armor penetration: {WeaponArmorPenetration}");
 Console.WriteLine($"Target toughtness: {TargetToughtness}");
 Console.WriteLine($"Target save: {TargetSave}");
-Console.WriteLine($"Target save: {InvulnerableSave}");
+Console.WriteLine($"Target invulnerable save: {InvulnerableSave}");
 
 Dice dice = new();
 
