@@ -19,7 +19,7 @@ namespace _40kStats.Test
         {
             int weaponStrenght = 2;
             Weapon weapon = new(0, weaponStrenght);
-            Assert.AreEqual(weaponStrenght, weapon.Strenght);
+            Assert.AreEqual(weaponStrenght, weapon.Strength);
         }
 
         [TestMethod]

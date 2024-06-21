@@ -7,33 +7,33 @@ using System.Linq;
 
 if (args.Length != 7 || args.Take(6).Any(a => !int.TryParse(a, out int result) || result < 1) || !bool.TryParse(args[6], out var resultBool))
 {
-    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrenght WeaponArmorPenetration TargetToughtness TargetSave IsInvulnerableSave");
+    Console.WriteLine("Usage: NumberOfAttacks BalisticSkill WeaponStrength WeaponArmorPenetration TargetToughness TargetSave IsInvulnerableSave");
     Console.WriteLine("Values must be integer and more than 1, except IsInvulnerableSave which must be true or false");
     return;
 }
 
-var NumberOfShots           = int.Parse(args[0]);
-var balisticSkill           = int.Parse(args[1]);
-var WeaponStrenght          = int.Parse(args[2]);
-var WeaponArmorPenetration  = int.Parse(args[3]);
-var TargetToughtness        = int.Parse(args[4]);
-var TargetSave              = int.Parse(args[5]);
-var InvulnerableSave        = resultBool;
+var NumberOfShots = int.Parse(args[0]);
+var balisticSkill = int.Parse(args[1]);
+var WeaponStrength = int.Parse(args[2]);
+var WeaponArmorPenetration = int.Parse(args[3]);
+var TargetToughness = int.Parse(args[4]);
+var TargetSave = int.Parse(args[5]);
+var InvulnerableSave = resultBool;
 
 Console.WriteLine($"# of shots: {NumberOfShots}");
 Console.WriteLine($"Balistic skill: {balisticSkill}");
-Console.WriteLine($"Weapon strenght: {WeaponStrenght}");
+Console.WriteLine($"Weapon strength: {WeaponStrength}");
 Console.WriteLine($"Weapon armor penetration: {WeaponArmorPenetration}");
-Console.WriteLine($"Target toughtness: {TargetToughtness}");
+Console.WriteLine($"Target toughness: {TargetToughness}");
 Console.WriteLine($"Target save: {TargetSave}");
 Console.WriteLine($"Target invulnerable save: {InvulnerableSave}");
 
 Dice dice = new();
 
 Shooter shooter = new(balisticSkill);
-Weapon weapon = new(NumberOfShots, WeaponStrenght, WeaponArmorPenetration);
+Weapon weapon = new(NumberOfShots, WeaponStrength, WeaponArmorPenetration);
 Save save = new(TargetSave);
-Target target = new(TargetToughtness, save);
+Target target = new(TargetToughness, save);
 
 WoundCalculator woundCalculator = new(target, shooter, weapon);
 

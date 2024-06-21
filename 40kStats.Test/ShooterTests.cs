@@ -30,7 +30,7 @@ namespace _40kStats.Test
             IEnumerable<RangedAttack> rangedAttacks = shooter.Shoot(target, weapon);
 
             Assert.AreEqual(randomNumberOfAttacks, rangedAttacks.Count());
-            Assert.IsTrue(rangedAttacks.All(r => r.WeaponStrenght == weapon.Strenght));
+            Assert.IsTrue(rangedAttacks.All(r => r.WeaponStrenght == weapon.Strength));
             Assert.IsTrue(rangedAttacks.All(r => r.Shooter == shooter));
             Assert.IsTrue(rangedAttacks.All(r => r.Target == target));
         }

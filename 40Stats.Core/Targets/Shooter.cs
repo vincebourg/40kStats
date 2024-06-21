@@ -8,6 +8,6 @@ namespace _40Stats.Core.Targets
     {
         public IEnumerable<RangedAttack> Shoot(Target target, Weapon weapon)
             => Enumerable.Range(1, weapon.Attacks)
-                         .Select(_ => new RangedAttack(target, this, weapon.Strenght, weapon.ArmorPenetration));
+                         .Select(_ => new RangedAttack(target, this, weapon.Strength, weapon.ArmorPenetration));
     };
 }
