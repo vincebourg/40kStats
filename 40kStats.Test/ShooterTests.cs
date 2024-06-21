@@ -14,7 +14,7 @@ namespace _40kStats.Test
         public void shooter_balistic_skill_must_be_set()
         {
             int balisticSkill = 1;
-            Shooter shooter = new (balisticSkill);
+            Shooter shooter = new(balisticSkill);
             Assert.AreEqual(balisticSkill, shooter.BalisticSkill);
         }
 
@@ -30,7 +30,7 @@ namespace _40kStats.Test
             IEnumerable<RangedAttack> rangedAttacks = shooter.Shoot(target, weapon);
 
             Assert.AreEqual(randomNumberOfAttacks, rangedAttacks.Count());
-            Assert.IsTrue(rangedAttacks.All(r => r.WeaponStrenght == weapon.Strength));
+            Assert.IsTrue(rangedAttacks.All(r => r.WeaponStrength == weapon.Strength));
             Assert.IsTrue(rangedAttacks.All(r => r.Shooter == shooter));
             Assert.IsTrue(rangedAttacks.All(r => r.Target == target));
         }

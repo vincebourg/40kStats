@@ -4,10 +4,15 @@ using System.Linq;
 
 namespace _40Stats.Core.Targets
 {
-    public record Shooter(int BalisticSkill)
+    public class Shooter(int balisticSkill)
     {
+        public int BalisticSkill => balisticSkill;
+        public Weapon Weapon { get; private set; }
         public IEnumerable<RangedAttack> Shoot(Target target, Weapon weapon)
-            => Enumerable.Range(1, weapon.Attacks)
-                         .Select(_ => new RangedAttack(target, this, weapon.Strength, weapon.ArmorPenetration));
+        {
+            Weapon = weapon;
+            return Enumerable.Range(1, weapon.Attacks)
+                         .Select(_ => new RangedAttack(target, this, weapon.Strength, weapon.ArmorPenetration)).ToList();
+        }
     };
 }

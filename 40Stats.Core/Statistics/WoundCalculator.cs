@@ -10,14 +10,18 @@ namespace _40Stats.Core.Statistics
         public WoundCalculatorResult Process(IRoll roller)
         {
             var attacks = Shooter.Shoot(Target, Weapon);
-            var hits = attacks.Select(a => (attack: a, hitRoll: a.RollHit(roller))).ToArray();
-            var wounds = hits.Where(h => h.hitRoll.Hit).Select(a => (attack: a.attack, woundRoll: a.attack.RollWound(roller))).ToArray();
-            var saves = wounds.Where(w => w.woundRoll.Wounded).Select(a => (attack: a.attack,saveRoll: a.attack.RollSave(roller))).ToArray();
+            foreach (var attack in attacks)
+            {
+                attack.Process(roller);
+            }
+            var hits = attacks.Where(a => a.HasHit).Count();
+            var wounds = attacks.Where(a => a.HasWounded).Count();
+            var damages = attacks.Where(a => a.HasDamaged).Count();
             return new(
                 attacks.Count(),
-                wounds.Count(),
-                saves.Count(),
-                saves.Count(s => s.saveRoll.Missed)
+                hits,
+                wounds,
+                damages
             );
         }
     }
