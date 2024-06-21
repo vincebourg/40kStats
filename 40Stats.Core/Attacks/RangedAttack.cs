@@ -4,13 +4,13 @@ using _40Stats.Core.Targets;
 
 namespace _40Stats.Core.Attacks
 {
-    public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrenght, int ArmorPenetration = 0)
+    public record RangedAttack(Target Target, Shooter Shooter, int WeaponStrength, int ArmorPenetration = 0)
     {
         public HitRoll RollHit(IRoll roller) => new(Shooter.BalisticSkill, roller.Roll());
 
         public WoundRoll RollWound(IRoll roller) => new(
             new WoundThresholdCalculator().GetThreshold(
-                WeaponStrenght,
+                WeaponStrength,
                 Target.Endurance),
             roller.Roll()
         );
