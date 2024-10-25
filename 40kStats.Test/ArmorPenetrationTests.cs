@@ -11,7 +11,7 @@ namespace _40kStats.Test
         [TestMethod]
         public void weapon_has_no_ap_by_default()
         {
-            Weapon weapon = new(1,1);
+            Weapon weapon = new(1,1,1);
             var realAP = weapon.ArmorPenetration;
             Assert.AreEqual(0, realAP);
         }

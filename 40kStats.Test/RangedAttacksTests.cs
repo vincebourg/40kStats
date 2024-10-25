@@ -14,13 +14,11 @@ namespace _40kStats.Test
         public void ranged_attack_must_have_shooter_strenght_and_target()
         {
             Target target = new(1);
-            Shooter shooter = new(1);
-            int weaponStrenght = 1;
+            var weapon = new Weapon(1, 1, 1);
 
-            RangedAttack rangedAttack = new(target, shooter, weaponStrenght);
+            RangedAttack rangedAttack = new(target, weapon);
 
-            Assert.AreEqual(weaponStrenght, rangedAttack.WeaponStrength);
-            Assert.AreEqual(shooter, rangedAttack.Shooter);
+            Assert.AreEqual(weapon.Strength, rangedAttack.WeaponStrength);
             Assert.AreEqual(target, rangedAttack.Target);
         }
 
@@ -28,26 +26,23 @@ namespace _40kStats.Test
         public void ranged_attack_can_be_rolled_for_hit()
         {
             Target target = new(1);
-            Shooter shooter = new(1);
-            int weaponStrength = 1;
-
-            RangedAttack rangedAttack = new(target, shooter, weaponStrength);
+            var weapon = new Weapon(1, 1, 1);
+            RangedAttack rangedAttack = new(target, weapon);
 
             HitRoll hitRoll = rangedAttack.RollHit(new Dice());
 
-            Assert.AreEqual(shooter.BalisticSkill, hitRoll.Expected);
+            Assert.AreEqual(weapon.Skill, hitRoll.Expected);
         }
 
         [TestMethod]
         public void ranged_attack_can_be_rolled_for_wound()
         {
             Target target = new(1);
-            Shooter shooter = new(1);
-            int weaponStrength = 1;
+            Weapon weapon = new(1, 1, 1);
             int expectedWoundRoll = 4;
 
 
-            RangedAttack rangedAttack = new(target, shooter, weaponStrength);
+            RangedAttack rangedAttack = new(target, weapon);
 
             WoundRoll woundRoll = rangedAttack.RollWound(new Dice());
 
@@ -60,10 +55,9 @@ namespace _40kStats.Test
             int expectedSaveRoll = 5;
             Save save = new(expectedSaveRoll);
             Target target = new(1, save);
-            Shooter shooter = new(1);
-            int weaponStrength = 1;
+            var weapon = new Weapon(1, 1, 1);
 
-            RangedAttack rangedAttack = new(target, shooter, weaponStrength);
+            RangedAttack rangedAttack = new(target, weapon);
 
             SaveRoll saveRoll = rangedAttack.RollSave(new Dice());
 
@@ -77,11 +71,10 @@ namespace _40kStats.Test
             int expectedSaveRoll = 3;
             Save save = new(expectedSaveRoll);
             Target target = new(1, save);
-            Shooter shooter = new(1);
-            Weapon weapon = new(1, 1, 2);
+            Weapon weapon = new(1, 1, 1, 2);
 
             // when
-            var result = shooter.Shoot(target, weapon);
+            var result = weapon.Shoot(target);
 
             // then
             Assert.AreEqual(result.Count(), 1, "Weapon shot should have generated one shot.");
@@ -95,9 +88,8 @@ namespace _40kStats.Test
             // given
             Save save = new(6);
             Target target = new(1, save);
-            Shooter shooter = new(1);
             Weapon weapon = new(1, 1, 2);
-            RangedAttack attack = new RangedAttack(target, shooter, weapon.Strength, weapon.ArmorPenetration);
+            RangedAttack attack = new RangedAttack(target, weapon);
 
             // when
             attack.Process(new OnlyRollFive());
@@ -114,9 +106,8 @@ namespace _40kStats.Test
             // given
             Save save = new(6);
             Target target = new(1, save);
-            Shooter shooter = new(1);
             Weapon weapon = new(1, 1, 2);
-            RangedAttack attack = new RangedAttack(target, shooter, weapon.Strength, weapon.ArmorPenetration);
+            RangedAttack attack = new RangedAttack(target, weapon);
 
             // when
             attack.Process(new OnlyRollOne());
@@ -133,9 +124,8 @@ namespace _40kStats.Test
             // given
             Save save = new(6);
             Target target = new(2, save);
-            Shooter shooter = new(1);
-            Weapon weapon = new(1, 1, 2);
-            RangedAttack attack = new RangedAttack(target, shooter, weapon.Strength, weapon.ArmorPenetration);
+            Weapon weapon = new(1, 1, 1);
+            RangedAttack attack = new RangedAttack(target, weapon);
 
             // when
             attack.Process(new OnlyRollFive());
@@ -152,9 +142,8 @@ namespace _40kStats.Test
             // given
             Save save = new(5);
             Target target = new(1, save);
-            Shooter shooter = new(1);
-            Weapon weapon = new(1, 1);
-            RangedAttack attack = new RangedAttack(target, shooter, weapon.Strength, weapon.ArmorPenetration);
+            Weapon weapon = new(1, 1, 1);
+            RangedAttack attack = new RangedAttack(target, weapon);
 
             // when
             attack.Process(new OnlyRollFive());
@@ -171,9 +160,8 @@ namespace _40kStats.Test
             // given
             Save save = new(2, true);
             Target target = new(1, save);
-            Shooter shooter = new(1);
-            Weapon weapon = new(1, 1, DevastatingWounds: true);
-            RangedAttack attack = shooter.Shoot(target, weapon).Single();
+            Weapon weapon = new(1, 1, 1, DevastatingWounds: true);
+            RangedAttack attack = weapon.Shoot(target).Single();
 
             // when
             attack.Process(new OnlyRollSix());

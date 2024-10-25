@@ -4,11 +4,11 @@ using _40Stats.Core.Targets;
 
 namespace _40Stats.Core.Attacks
 {
-    public class RangedAttack(Target target, Shooter shooter, int weaponStrength, int armorPenetration = 0)
+    public class RangedAttack(Target target, Weapon weapon, int armorPenetration = 0)
     {
         public Target Target => target;
-        public Shooter Shooter => shooter;
-        public int WeaponStrength => weaponStrength;
+        public Weapon Weapon => weapon;
+        public int WeaponStrength => Weapon.Strength;
         public int ArmorPenetration => armorPenetration;
         public bool HasHit { get; private set; } = false;
         public bool HasWounded { get; private set; } = false;
@@ -26,7 +26,7 @@ namespace _40Stats.Core.Attacks
                 if (WoundRoll.Wounded)
                 {
                     HasWounded = true;
-                    if (WoundRoll.IsCritical && shooter.Weapon.DevastatingWounds)
+                    if (WoundRoll.IsCritical && weapon.DevastatingWounds)
                     {
                         HasDamaged = true;
                     }
@@ -42,7 +42,7 @@ namespace _40Stats.Core.Attacks
             }
         }
 
-        public HitRoll RollHit(IRoll roller) => new(Shooter.BalisticSkill, roller.Roll());
+        public HitRoll RollHit(IRoll roller) => new(Weapon.Skill, roller.Roll());
 
         public WoundRoll RollWound(IRoll roller) => new(
             new WoundThresholdCalculator().GetThreshold(

@@ -30,12 +30,11 @@ Console.WriteLine($"Target invulnerable save: {InvulnerableSave}");
 
 Dice dice = new();
 
-Shooter shooter = new(balisticSkill);
-Weapon weapon = new(NumberOfShots, WeaponStrength, WeaponArmorPenetration);
+Weapon weapon = new(balisticSkill, NumberOfShots, WeaponStrength, WeaponArmorPenetration);
 Save save = new(TargetSave);
 Target target = new(TargetToughness, save);
 
-WoundCalculator woundCalculator = new(target, shooter, weapon);
+WoundCalculator woundCalculator = new(target, weapon);
 
 var results = Enumerable.Range(0, 100)
     .Select(i => woundCalculator.Process(dice));

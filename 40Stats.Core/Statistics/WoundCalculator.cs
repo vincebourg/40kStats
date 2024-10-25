@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace _40Stats.Core.Statistics
 {
-    public record WoundCalculator(Target Target, Shooter Shooter, Weapon Weapon)
+    public record WoundCalculator(Target Target, Weapon Weapon)
     {
         public WoundCalculatorResult Process(IRoll roller)
         {
-            var attacks = Shooter.Shoot(Target, Weapon);
+            var attacks = Weapon.Shoot(Target);
             foreach (var attack in attacks)
             {
                 attack.Process(roller);

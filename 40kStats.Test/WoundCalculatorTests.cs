@@ -12,10 +12,9 @@ namespace _40kStats.Test
         public void woundCalculator_can_calculate_wound_probability()
         {
             Target target = new(3);
-            Shooter shooter = new(4);
-            Weapon weapon = new(2, 5);
+            Weapon weapon = new(4, 2, 5);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new Dice());
 
@@ -30,10 +29,9 @@ namespace _40kStats.Test
         {
             int _ = 3;
             Target target = new(_);
-            Shooter shooter = new(2);
-            Weapon weapon = new(1, _);
+            Weapon weapon = new(2, 1, _);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new OnlyRollOne());
 
@@ -48,10 +46,9 @@ namespace _40kStats.Test
         {
             int _ = 3;
             Target target = new(_);
-            Shooter shooter = new(2);
-            Weapon weapon = new(1, _);
+            Weapon weapon = new(2, 1, _);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new OnlyRollTwo());
 
@@ -66,10 +63,9 @@ namespace _40kStats.Test
         {
             Save save = new(1);
             Target target = new(3, save);
-            Shooter shooter = new(2);
-            Weapon weapon = new(1, 6);
+            Weapon weapon = new(2, 1, 6);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new OnlyRollTwo());
 
@@ -84,10 +80,9 @@ namespace _40kStats.Test
         {
             Save save = new(3);
             Target target = new(3, save);
-            Shooter shooter = new(2);
-            Weapon weapon = new(1, 6);
+            Weapon weapon = new(2, 1, 6);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new OnlyRollTwo());
 
@@ -103,10 +98,9 @@ namespace _40kStats.Test
         public void woundCalculator_can_handle_devastating_wounds()
         {
             Target target = new(3, new Save(6, true));
-            Shooter shooter = new(2);
-            Weapon weapon = new(1, 3, DevastatingWounds: true);
+            Weapon weapon = new(2, 1, 3, DevastatingWounds: true);
 
-            WoundCalculator calculator = new(target, shooter, weapon);
+            WoundCalculator calculator = new(target, weapon);
 
             WoundCalculatorResult result = calculator.Process(new OnlyRollSix());
 
