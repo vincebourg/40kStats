@@ -171,5 +171,26 @@ namespace _40kStats.Test
             Assert.IsTrue(attack.HasWounded);
             Assert.IsTrue(attack.HasDamaged);
         }
+
+        [TestMethod]
+        public void ranged_attack_with_lethalHit_always_wounds_on_crit_hit()
+        {
+            // given
+            Save save = new(2, true);
+            Target target = new(1, save);
+            Weapon weapon = new(1, 1, 1, LethalHit: true);
+            RangedAttack attack = weapon.Shoot(target).Single();
+
+            //var specialRoll = new Mock<IRoll>();
+
+
+            // when
+            attack.Process(new OnlyRollSix());
+
+            // then
+            Assert.IsTrue(attack.HasHit);
+            Assert.IsTrue(attack.HasWounded);
+            Assert.IsFalse(attack.HasDamaged);
+        }
     }
 }

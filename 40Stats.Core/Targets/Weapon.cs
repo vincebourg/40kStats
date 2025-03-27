@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace _40Stats.Core.Targets
 {
-    public record Weapon(int Skill, int Attacks, int Strength, int ArmorPenetration = 0, bool DevastatingWounds = false)
+    public record Weapon(int Skill, int Attacks, int Strength, int ArmorPenetration = 0, bool DevastatingWounds = false, bool LethalHit = false)
     {
         public IEnumerable<RangedAttack> Shoot(Target target)
         {

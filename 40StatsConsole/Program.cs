@@ -44,6 +44,7 @@ var averageNumberOfHits = results.Average(r => r.NumberOfHits);
 var averageNumberOfWounds = results.Average(r => r.NumberOfWounds);
 var averageNumberOfUnsaved = results.Average(r => r.numberOfNonSavedWounds);
 
+
 Console.WriteLine($"Average Number of shots: {averageNumberOfShots}");
 Console.WriteLine($"Average Number of hits: {averageNumberOfHits}");
 Console.WriteLine($"Average Number of wounds: {averageNumberOfWounds}");

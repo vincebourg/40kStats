@@ -37,5 +37,15 @@ namespace _40kStats.Test
             Weapon weapon = new(0, 0, weaponStrenght);
             Assert.IsFalse(weapon.DevastatingWounds);
         }
+
+        [TestMethod]
+        public void weapon_is_not_lethalHit_by_default()
+        {
+            int weaponStrenght = 2;
+            Weapon weapon = new(0, 0, weaponStrenght);
+            Assert.IsFalse(weapon.LethalHit);
+        }
+
+
     }
 }
